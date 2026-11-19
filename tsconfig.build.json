@@ -1,0 +1,13 @@
+{
+  // Used only to generate the published .d.ts files: library source, no stories, tests or docs.
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "types": [],
+    "allowImportingTsExtensions": false,
+    "noEmit": false,
+    "declaration": true,
+    "emitDeclarationOnly": true
+  },
+  "include": ["src"],
+  "exclude": ["src/**/*.stories.tsx", "src/**/*.test.ts", "src/**/*.test.tsx", "src/test", "src/docs"]
+}

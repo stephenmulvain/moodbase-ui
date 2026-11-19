@@ -1,0 +1,18 @@
+/*
+ * Base styles shipped with the library.
+ * Kept deliberately small: a design system should not restyle the host app's page.
+ * Everything here uses :where() so it has zero specificity and is easy to override.
+ */
+
+/* Accessible default: a clearly visible focus ring for keyboard users only. */
+:where(:focus-visible) {
+  outline: var(--mb-border-width-thick, 2px) solid var(--mb-color-focus-ring, Highlight);
+  outline-offset: 2px;
+}
+
+/* Never remove focus outlines in Windows High Contrast / forced-colors mode. */
+@media (forced-colors: active) {
+  :where(:focus-visible) {
+    outline-color: Highlight;
+  }
+}
