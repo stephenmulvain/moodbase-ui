@@ -1,0 +1,23 @@
+.field {
+  --_hint-margin: 0 0 var(--mb-space-1);
+  --_error-margin: 0 0 var(--mb-space-1);
+
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.label {
+  margin-bottom: var(--mb-space-1);
+}
+
+/* Builds on the shared text input look; only multi-line differences live here. */
+.textarea {
+  padding-block: var(--mb-space-2);
+  resize: vertical;
+}
+
+.count {
+  margin-top: var(--mb-space-1);
+  text-align: end;
+}

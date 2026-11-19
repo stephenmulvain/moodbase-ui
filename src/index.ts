@@ -10,6 +10,14 @@ export type { CardElement, CardPadding, CardProps, CardVariant } from './compone
 export { TextField } from './components/TextField';
 export type { TextFieldProps, TextFieldSize } from './components/TextField';
 
+export { Textarea } from './components/Textarea';
+export type { TextareaProps } from './components/Textarea';
+export { Checkbox } from './components/Checkbox';
+export type { CheckboxProps } from './components/Checkbox';
+export { RadioGroup } from './components/RadioGroup';
+export type { RadioGroupProps, RadioOption } from './components/RadioGroup';
+export { Switch } from './components/Switch';
+export type { SwitchProps } from './components/Switch';
 export { Heading } from './components/Heading';
 export type { HeadingLevel, HeadingProps, HeadingSize } from './components/Heading';
 export { Text } from './components/Text';

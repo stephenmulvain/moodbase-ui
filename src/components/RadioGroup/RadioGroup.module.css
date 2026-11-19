@@ -1,0 +1,34 @@
+.group {
+  --_hint-margin: 0 0 var(--mb-space-2);
+  --_error-margin: 0 0 var(--mb-space-2);
+
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* Legends are awkward to lay out; making it a block with padding keeps it predictable. */
+.legend {
+  float: left;
+  width: 100%;
+  margin-bottom: var(--mb-space-2);
+  padding: 0;
+}
+
+.legend + * {
+  clear: both;
+}
+
+.vertical {
+  display: grid;
+  gap: var(--mb-space-3);
+  clear: both;
+}
+
+.horizontal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--mb-space-3) var(--mb-space-6);
+  clear: both;
+}

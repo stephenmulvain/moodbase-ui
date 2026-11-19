@@ -1,0 +1,193 @@
+/*
+ * Shared look for choice controls: Checkbox, Radio (in RadioGroup) and Switch.
+ * Each is a real native <input> restyled with `appearance: none`, so keyboard,
+ * form submission and screen reader behaviour stay native.
+ */
+
+.choice {
+  --_control: 20px;
+  --_gap: var(--mb-space-3);
+  --_hint-margin: var(--mb-space-1) 0 0 calc(var(--_control) + var(--_gap));
+  --_error-margin: var(--mb-space-1) 0 0 calc(var(--_control) + var(--_gap));
+
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  font-family: var(--mb-font-family-sans);
+}
+
+.row {
+  display: flex;
+  gap: var(--_gap);
+  align-items: flex-start;
+}
+
+/* Regular-weight labels read better next to small controls than bold ones. */
+.label {
+  padding-top: 0.0625rem;
+  color: var(--mb-color-text);
+  font-size: var(--mb-font-size-md);
+  font-weight: var(--mb-font-weight-regular);
+  line-height: var(--mb-line-height-snug);
+  cursor: pointer;
+}
+
+.control {
+  flex-shrink: 0;
+  display: grid;
+  place-content: center;
+  width: var(--_control);
+  height: var(--_control);
+  margin: 0;
+  border: var(--mb-border-width-thick) solid var(--mb-color-border-strong);
+  background: var(--mb-color-surface-raised);
+  cursor: pointer;
+  appearance: none;
+  transition:
+    background-color 120ms ease-out,
+    border-color 120ms ease-out;
+}
+
+.control:hover:not(:disabled, :checked) {
+  border-color: var(--mb-color-text-muted);
+}
+
+.control:focus-visible {
+  outline: var(--mb-border-width-thick) solid var(--mb-color-focus-ring);
+  outline-offset: 2px;
+}
+
+.control[aria-invalid='true'],
+.invalid {
+  border-color: var(--mb-color-danger);
+}
+
+.control:disabled,
+.control:disabled + .label {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+/* Checkbox: rounded square with a drawn checkmark. */
+.checkbox {
+  border-radius: var(--mb-radius-sm);
+}
+
+.checkbox::before {
+  width: 12px;
+  height: 12px;
+  background: var(--mb-color-on-accent);
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+  content: '';
+  transform: scale(0);
+  transition: transform 120ms ease-out;
+}
+
+.checkbox:checked {
+  border-color: var(--mb-color-accent);
+  background: var(--mb-color-accent);
+}
+
+.checkbox:checked::before {
+  transform: scale(1);
+}
+
+/* Radio: circle with an inner dot. */
+.radio {
+  border-radius: var(--mb-radius-full);
+}
+
+.radio::before {
+  width: 10px;
+  height: 10px;
+  border-radius: var(--mb-radius-full);
+  background: var(--mb-color-accent);
+  content: '';
+  transform: scale(0);
+  transition: transform 120ms ease-out;
+}
+
+.radio:checked {
+  border-color: var(--mb-color-accent);
+}
+
+.radio:checked::before {
+  transform: scale(1);
+}
+
+/* Switch: a 40 x 24 track with a sliding thumb. */
+.switch-choice {
+  --_control: 40px;
+}
+
+.switch {
+  width: 40px;
+  height: 24px;
+  padding: 2px;
+  border-radius: var(--mb-radius-full);
+  place-content: center start;
+}
+
+.switch::before {
+  width: 16px;
+  height: 16px;
+  border-radius: var(--mb-radius-full);
+  background: var(--mb-color-border-strong);
+  content: '';
+  transition:
+    transform 160ms ease-out,
+    background-color 160ms ease-out;
+}
+
+.switch:checked {
+  border-color: var(--mb-color-accent);
+  background: var(--mb-color-accent);
+}
+
+.switch:checked::before {
+  background: var(--mb-color-on-accent);
+  transform: translateX(16px);
+}
+
+/* Switch rows: vertically centre the label against the taller track. */
+.switch-choice .label {
+  padding-top: 0.125rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .control,
+  .control::before {
+    transition: none;
+  }
+}
+
+/* Windows High Contrast: restyled inputs lose their colours, so map them to system colours. */
+@media (forced-colors: active) {
+  .control {
+    border-color: CanvasText;
+  }
+
+  .checkbox:checked,
+  .switch:checked {
+    border-color: Highlight;
+    background: Highlight;
+  }
+
+  .checkbox::before,
+  .switch:checked::before {
+    background: HighlightText;
+  }
+
+  .radio::before,
+  .switch::before {
+    background: CanvasText;
+  }
+
+  .radio:checked {
+    border-color: Highlight;
+  }
+
+  .radio:checked::before {
+    background: Highlight;
+  }
+}
