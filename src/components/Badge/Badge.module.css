@@ -1,0 +1,48 @@
+/*
+ * Badge: tone-coloured text on a 14% tint of the same tone (see TINT.badge in
+ * tokens/contrast.ts; the contrast tests check every tone in every theme).
+ */
+
+.badge {
+  --_tone: var(--mb-color-text-muted);
+
+  display: inline-flex;
+  align-items: center;
+  gap: var(--mb-space-1);
+  padding: 0.125rem var(--mb-space-2);
+  border-radius: var(--mb-radius-full);
+  background: color-mix(in srgb, var(--_tone) 14%, var(--mb-color-surface-raised));
+  color: var(--_tone);
+  font-family: var(--mb-font-family-sans);
+  font-size: var(--mb-font-size-sm);
+  font-weight: var(--mb-font-weight-medium);
+  line-height: var(--mb-line-height-snug);
+  white-space: nowrap;
+}
+
+.neutral {
+  --_tone: var(--mb-color-text-muted);
+}
+
+.accent {
+  --_tone: var(--mb-color-accent);
+}
+
+.success {
+  --_tone: var(--mb-color-success);
+}
+
+.warning {
+  --_tone: var(--mb-color-warning);
+}
+
+.danger {
+  --_tone: var(--mb-color-danger);
+}
+
+/* Windows High Contrast removes backgrounds: an outline keeps the badge shape. */
+@media (forced-colors: active) {
+  .badge {
+    border: var(--mb-border-width-thin) solid CanvasText;
+  }
+}

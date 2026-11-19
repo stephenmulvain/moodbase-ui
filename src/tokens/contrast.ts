@@ -26,6 +26,26 @@ export function contrastRatio(foreground: string, background: string): number {
   return (Math.max(a, b) + 0.05) / (Math.min(a, b) + 0.05);
 }
 
+/**
+ * Mirrors CSS `color-mix(in srgb, <color> <amount>, <base>)`: a straight blend of the
+ * gamma-encoded sRGB channels. Lets tests check contrast on tinted backgrounds.
+ */
+export function mixHex(color: string, base: string, amount: number): string {
+  const a = hexToRgb(color);
+  const b = hexToRgb(base);
+  const channel = (i: 0 | 1 | 2) => Math.round(a[i] * amount + b[i] * (1 - amount));
+  return `#${[channel(0), channel(1), channel(2)]
+    .map((c) => c.toString(16).padStart(2, '0'))
+    .join('')
+    .toUpperCase()}`;
+}
+
+/**
+ * How much tone colour tints a feedback background. Must match the percentages in
+ * Alert.module.css and Badge.module.css; the tinted contrast tests depend on them.
+ */
+export const TINT = { alert: 0.1, badge: 0.14 } as const;
+
 export interface ContrastRequirement {
   /** Semantic colour name without the `color.` prefix. */
   foreground: string;
