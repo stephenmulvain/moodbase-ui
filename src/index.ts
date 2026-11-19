@@ -30,6 +30,8 @@ export {
   MoodPicker,
 } from './components/MoodPicker';
 export type { MoodIconProps, MoodLevel, MoodPickerProps } from './components/MoodPicker';
+export { Calendar, toDateKey } from './components/Calendar';
+export type { CalendarProps, WeekStart } from './components/Calendar';
 export { Heading } from './components/Heading';
 export type { HeadingLevel, HeadingProps, HeadingSize } from './components/Heading';
 export { Text } from './components/Text';

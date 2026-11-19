@@ -1,0 +1,164 @@
+/*
+ * Calendar: month grid. Uses only --mb-* tokens.
+ * Selected days use an accent ring and soft tint (not a solid fill), so mood icons
+ * keep their own colours and contrast. Today gets a border and bolder number.
+ */
+
+.calendar {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 400px;
+  color: var(--mb-color-text);
+  font-family: var(--mb-font-family-sans);
+}
+
+.header {
+  display: flex;
+  gap: var(--mb-space-2);
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--mb-space-2);
+}
+
+.title {
+  font-size: var(--mb-font-size-lg);
+  font-weight: var(--mb-font-weight-semibold);
+  line-height: var(--mb-line-height-snug);
+  text-align: center;
+}
+
+.nav {
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: var(--mb-space-10);
+  height: var(--mb-space-10);
+  padding: 0;
+  border: 0;
+  border-radius: var(--mb-radius-md);
+  background: transparent;
+  color: var(--mb-color-text);
+  cursor: pointer;
+}
+
+.nav > svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentcolor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+}
+
+.nav:hover:not([aria-disabled='true']) {
+  background: color-mix(in srgb, var(--mb-color-text) 8%, transparent);
+}
+
+.nav[aria-disabled='true'] {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.nav:focus-visible,
+.day:focus-visible {
+  outline: var(--mb-border-width-thick) solid var(--mb-color-focus-ring);
+  outline-offset: 2px;
+}
+
+.grid {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.weekday {
+  padding-block: var(--mb-space-2);
+  color: var(--mb-color-text-muted);
+  font-size: var(--mb-font-size-xs);
+  font-weight: var(--mb-font-weight-medium);
+  text-align: center;
+}
+
+.grid td {
+  padding: 2px;
+  text-align: center;
+}
+
+.day {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 100%;
+  height: 52px;
+  padding: 0;
+  border: var(--mb-border-width-thin) solid transparent;
+  border-radius: var(--mb-radius-md);
+  background: transparent;
+  color: var(--mb-color-text);
+  font: inherit;
+  font-size: var(--mb-font-size-sm);
+  font-variant-numeric: tabular-nums;
+  cursor: pointer;
+  transition:
+    background-color 120ms ease-out,
+    box-shadow 120ms ease-out;
+}
+
+.number {
+  line-height: 1;
+}
+
+.day:hover:not([aria-disabled='true']) {
+  background: color-mix(in srgb, var(--mb-color-text) 6%, transparent);
+}
+
+.today {
+  border-color: var(--mb-color-border-strong);
+  font-weight: var(--mb-font-weight-semibold);
+}
+
+.selected {
+  background: color-mix(in srgb, var(--mb-color-accent) 14%, var(--mb-color-surface-raised));
+  box-shadow: inset 0 0 0 var(--mb-border-width-thick) var(--mb-color-accent);
+  font-weight: var(--mb-font-weight-bold);
+}
+
+.selected:hover:not([aria-disabled='true']) {
+  background: color-mix(in srgb, var(--mb-color-accent) 20%, var(--mb-color-surface-raised));
+}
+
+.day[aria-disabled='true'] {
+  color: var(--mb-color-text-muted);
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .day {
+    transition: none;
+  }
+}
+
+/* Windows High Contrast: tints and inset shadows disappear, so use real borders. */
+@media (forced-colors: active) {
+  .today {
+    border-color: CanvasText;
+  }
+
+  .selected {
+    border: var(--mb-border-width-thick) solid Highlight;
+  }
+}

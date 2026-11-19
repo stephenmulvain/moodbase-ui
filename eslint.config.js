@@ -28,12 +28,14 @@ export default defineConfig(
     extends: [reactHooks.configs.flat.recommended, jsxA11y.flatConfigs.strict],
     languageOptions: { globals: globals.browser },
     rules: {
-      // The strict preset forbids every role on <fieldset>, but W3C "ARIA in HTML"
-      // permits role="radiogroup" there. RadioGroup needs it so aria-invalid and
-      // aria-required are valid on the group. Everything else stays strict.
+      // The strict preset forbids interactive roles on these elements, but W3C
+      // "ARIA in HTML" permits these pairs, and our components rely on them:
+      //   fieldset → radiogroup  (RadioGroup, MoodPicker: aria-invalid/required on the group)
+      //   table → grid, td → gridcell  (Calendar: the WAI-ARIA date picker grid pattern)
+      // Every other combination stays forbidden.
       'jsx-a11y/no-noninteractive-element-to-interactive-role': [
         'error',
-        { fieldset: ['radiogroup'] },
+        { fieldset: ['radiogroup'], table: ['grid'], td: ['gridcell'] },
       ],
     },
   },
