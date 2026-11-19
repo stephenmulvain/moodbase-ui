@@ -1,0 +1,17 @@
+{
+  "color": {
+    "$type": "color",
+    "surface": { "$value": "{color.slate.50}", "$description": "Page background." },
+    "surface-raised": { "$value": "{color.white}", "$description": "Cards, panels, popovers." },
+    "text": { "$value": "{color.slate.900}", "$description": "Primary text." },
+    "text-muted": { "$value": "{color.slate.600}", "$description": "Secondary text. Still AA on every surface." },
+    "border": { "$value": "{color.slate.200}", "$description": "Decorative dividers." },
+    "border-strong": { "$value": "{color.slate.500}", "$description": "Input and control outlines (3:1 non-text contrast)." },
+    "accent": { "$value": "{color.tide.600}", "$description": "Primary actions, links, selection." },
+    "on-accent": { "$value": "{color.white}", "$description": "Text and icons placed on an accent fill." },
+    "success": { "$value": "{color.sage.600}" },
+    "warning": { "$value": "{color.amber.700}" },
+    "danger": { "$value": "{color.rose.600}", "$description": "Errors and destructive actions only, never mood." },
+    "focus-ring": { "$value": "{color.tide.500}", "$description": "Keyboard focus outline." }
+  }
+}

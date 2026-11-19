@@ -1,0 +1,9 @@
+{
+  "shadow": {
+    "$type": "shadow",
+    "$description": "Soft, diffuse shadows. Stored as CSS strings for simplicity.",
+    "sm": { "$value": "0 1px 2px rgb(20 24 30 / 0.06), 0 1px 3px rgb(20 24 30 / 0.08)" },
+    "md": { "$value": "0 2px 4px rgb(20 24 30 / 0.06), 0 4px 12px rgb(20 24 30 / 0.08)" },
+    "lg": { "$value": "0 4px 8px rgb(20 24 30 / 0.06), 0 12px 32px rgb(20 24 30 / 0.12)" }
+  }
+}

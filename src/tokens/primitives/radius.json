@@ -1,0 +1,17 @@
+{
+  "radius": {
+    "$type": "dimension",
+    "$description": "Generous, soft corners suit the calm tone.",
+    "none": { "$value": "0px" },
+    "sm": { "$value": "4px" },
+    "md": { "$value": "8px" },
+    "lg": { "$value": "12px" },
+    "xl": { "$value": "20px" },
+    "full": { "$value": "9999px" }
+  },
+  "border-width": {
+    "$type": "dimension",
+    "thin": { "$value": "1px" },
+    "thick": { "$value": "2px" }
+  }
+}
