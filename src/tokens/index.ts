@@ -139,7 +139,8 @@ export function validateTokens(): string[] {
         if (!names.includes(name)) problems.push(`${brand}.${theme} is missing "${name}".`);
       }
       for (const name of names) {
-        if (!reference.includes(name)) problems.push(`${brand}.${theme} has extra token "${name}".`);
+        if (!reference.includes(name))
+          problems.push(`${brand}.${theme} has extra token "${name}".`);
       }
       for (const token of tokens) {
         const ref = getReference(token.value);

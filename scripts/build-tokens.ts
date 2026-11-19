@@ -70,11 +70,15 @@ if (process.argv.includes('--check')) {
     // Missing file counts as out of date.
   }
   if (current !== css) {
-    console.error('src/styles/tokens.css is out of date. Run `npm run tokens` and commit the result.');
+    console.error(
+      'src/styles/tokens.css is out of date. Run `npm run tokens` and commit the result.',
+    );
     process.exit(1);
   }
   console.log('tokens.css is up to date.');
 } else {
   writeFileSync(OUTPUT, css);
-  console.log(`Wrote ${primitiveTokens.length} primitive tokens and ${brands.length * themes.length} themes to src/styles/tokens.css`);
+  console.log(
+    `Wrote ${primitiveTokens.length} primitive tokens and ${brands.length * themes.length} themes to src/styles/tokens.css`,
+  );
 }
