@@ -1,3 +1,4 @@
+/// <reference types="vitest/config" />
 import { fileURLToPath } from 'node:url';
 import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
@@ -29,5 +30,11 @@ export default defineConfig({
       external: ['react', 'react-dom', 'react/jsx-runtime'],
     },
     sourcemap: true,
+  },
+  test: {
+    environment: 'jsdom',
+    setupFiles: ['./src/test/setup.ts'],
+    include: ['src/**/*.test.{ts,tsx}', 'scripts/**/*.test.ts'],
+    css: { modules: { classNameStrategy: 'non-scoped' } },
   },
 });
