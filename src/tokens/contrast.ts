@@ -51,4 +51,5 @@ export const contrastRequirements: ContrastRequirement[] = [
   ...onSurfaces('border-strong', NON_TEXT, 'Input and control outlines'),
   ...onSurfaces('focus-ring', NON_TEXT, 'Keyboard focus ring'),
   { foreground: 'on-accent', background: 'accent', minimum: TEXT, use: 'Text on accent buttons' },
+  { foreground: 'on-accent', background: 'danger', minimum: TEXT, use: 'Text on danger buttons' },
 ];

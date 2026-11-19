@@ -13,6 +13,8 @@
     "src/**/*.test.ts",
     "src/**/*.test.tsx",
     "src/test",
-    "src/docs"
+    "src/docs",
+    "src/tokens/index.ts",
+    "src/tokens/contrast.ts"
   ]
 }

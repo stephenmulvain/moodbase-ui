@@ -1,0 +1,179 @@
+/*
+ * Button styles use only --mb-* tokens.
+ * Each variant/size sets private --_ custom properties; .button consumes them.
+ * Hover and pressed colors are mixed toward --mb-color-text, so they darken in
+ * light mode and lighten in dark mode without needing extra tokens.
+ */
+
+.button {
+  --_bg: transparent;
+  --_bg-hover: transparent;
+  --_bg-active: transparent;
+  --_fg: var(--mb-color-text);
+  --_border: transparent;
+
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--_height);
+  padding-inline: var(--_padding);
+  border: var(--mb-border-width-thin) solid var(--_border);
+  border-radius: var(--mb-radius-md);
+  background: var(--_bg);
+  color: var(--_fg);
+  font-family: var(--mb-font-family-sans);
+  font-size: var(--_font-size);
+  font-weight: var(--mb-font-weight-semibold);
+  line-height: var(--mb-line-height-tight);
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    background-color 120ms ease-out,
+    border-color 120ms ease-out;
+}
+
+.button:hover:not(:disabled, [aria-disabled='true']) {
+  background: var(--_bg-hover);
+}
+
+.button:active:not(:disabled, [aria-disabled='true']) {
+  background: var(--_bg-active);
+}
+
+.button:focus-visible {
+  outline: var(--mb-border-width-thick) solid var(--mb-color-focus-ring);
+  outline-offset: 2px;
+}
+
+.button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* Variants */
+
+.primary {
+  --_bg: var(--mb-color-accent);
+  --_bg-hover: color-mix(in srgb, var(--mb-color-accent) 86%, var(--mb-color-text));
+  --_bg-active: color-mix(in srgb, var(--mb-color-accent) 76%, var(--mb-color-text));
+  --_fg: var(--mb-color-on-accent);
+}
+
+.secondary {
+  --_bg: var(--mb-color-surface-raised);
+  --_bg-hover: color-mix(in srgb, var(--mb-color-surface-raised) 93%, var(--mb-color-text));
+  --_bg-active: color-mix(in srgb, var(--mb-color-surface-raised) 87%, var(--mb-color-text));
+  --_fg: var(--mb-color-text);
+  --_border: var(--mb-color-border-strong);
+}
+
+.ghost {
+  --_bg-hover: color-mix(in srgb, var(--mb-color-accent) 10%, transparent);
+  --_bg-active: color-mix(in srgb, var(--mb-color-accent) 18%, transparent);
+  --_fg: var(--mb-color-accent);
+}
+
+.danger {
+  --_bg: var(--mb-color-danger);
+  --_bg-hover: color-mix(in srgb, var(--mb-color-danger) 86%, var(--mb-color-text));
+  --_bg-active: color-mix(in srgb, var(--mb-color-danger) 76%, var(--mb-color-text));
+  --_fg: var(--mb-color-on-accent);
+}
+
+/* Sizes: 32 / 40 / 48px tall, all above the WCAG 2.2 24px minimum target size. */
+
+.sm {
+  --_height: var(--mb-space-8);
+  --_padding: var(--mb-space-3);
+  --_font-size: var(--mb-font-size-sm);
+  --_gap: var(--mb-space-1);
+}
+
+.md {
+  --_height: var(--mb-space-10);
+  --_padding: var(--mb-space-4);
+  --_font-size: var(--mb-font-size-md);
+  --_gap: var(--mb-space-2);
+}
+
+.lg {
+  --_height: var(--mb-space-12);
+  --_padding: var(--mb-space-6);
+  --_font-size: var(--mb-font-size-lg);
+  --_gap: var(--mb-space-2);
+}
+
+.full-width {
+  width: 100%;
+}
+
+/* Content and icons */
+
+.content {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--_gap);
+}
+
+.icon {
+  display: inline-flex;
+  flex-shrink: 0;
+}
+
+.icon > svg {
+  width: 1.25em;
+  height: 1.25em;
+}
+
+/* Loading: label stays in the accessibility tree (opacity, not visibility) so the
+   button keeps its name and width while the spinner shows. */
+
+.loading {
+  cursor: progress;
+}
+
+.loading .content {
+  opacity: 0;
+}
+
+.spinner {
+  position: absolute;
+  inset: 0;
+  width: 1.125em;
+  height: 1.125em;
+  margin: auto;
+  border: var(--mb-border-width-thick) solid currentcolor;
+  border-right-color: transparent;
+  border-radius: var(--mb-radius-full);
+  animation: spin 700ms linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button {
+    transition: none;
+  }
+
+  /* Keep a slow spin: the motion is the only cue that work is happening. */
+  .spinner {
+    animation-duration: 2s;
+  }
+}
+
+/* Windows High Contrast: borders become visible automatically because every
+   variant has a (transparent) border. Make disabled clearly distinct. */
+@media (forced-colors: active) {
+  .button:disabled {
+    border-color: GrayText;
+    color: GrayText;
+    opacity: 1;
+  }
+}
