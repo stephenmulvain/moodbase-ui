@@ -4,6 +4,11 @@
   "description": "The design system for Moodbase, a calm, supportive mood tracking dashboard.",
   "private": true,
   "license": "MIT",
+  "homepage": "https://stephenmulvain.github.io/moodbase-ui/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stephenmulvain/moodbase-ui.git"
+  },
   "type": "module",
   "sideEffects": [
     "**/*.css"

@@ -10,7 +10,9 @@ _TODO: Why this design system exists, who it is for, and what Moodbase is._
 
 ## Live demo
 
-_TODO: Link to the deployed Storybook._
+**[View the Storybook →](https://stephenmulvain.github.io/moodbase-ui/)**
+
+Use the **Brand** and **Theme** switchers in the toolbar to see every component in Calm and Warm, light and dark. Start with **Foundations** for colors, type and spacing. Redeployed automatically on every merge to `main`.
 
 ## Design decisions
 
