@@ -16,3 +16,6 @@ Thumbs.db
 .vscode/*
 !.vscode/extensions.json
 .idea/
+
+# Local design-checker tool settings
+.impeccable/
