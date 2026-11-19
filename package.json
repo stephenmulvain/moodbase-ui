@@ -25,7 +25,9 @@
     "node": ">=22.18"
   },
   "scripts": {
-    "build": "tsc --noEmit && vite build",
+    "tokens": "node scripts/build-tokens.ts",
+    "tokens:check": "node scripts/build-tokens.ts --check",
+    "build": "npm run tokens && tsc --noEmit && vite build",
     "typecheck": "tsc --noEmit"
   },
   "peerDependencies": {
