@@ -1,6 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import type { CSSProperties } from 'react';
 import { Button } from '../Button';
+import { Heading } from '../Heading';
+import { Text } from '../Text';
 import { TextField } from '../TextField';
 import { Card } from './Card';
 
@@ -20,25 +22,17 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-/* Story-only typography helpers. Real content styles will come from future Text components. */
-const title: CSSProperties = {
-  margin: 0,
-  fontSize: 'var(--mb-font-size-lg)',
-  fontWeight: 'var(--mb-font-weight-semibold)',
-  lineHeight: 'var(--mb-line-height-tight)',
-};
-const body: CSSProperties = {
-  margin: 'var(--mb-space-2) 0 0',
-  color: 'var(--mb-color-text-muted)',
-  lineHeight: 'var(--mb-line-height-normal)',
-};
+/* Story-only layout helpers. A Stack layout component may replace these later. */
 const narrow: CSSProperties = { maxWidth: 360 };
+const stack = (gap: string): CSSProperties => ({ display: 'grid', gap: `var(--mb-space-${gap})` });
 
 const SampleContent = () => (
-  <>
-    <h3 style={title}>A gentle check-in</h3>
-    <p style={body}>Take a moment to notice how you feel. There are no wrong answers.</p>
-  </>
+  <div style={stack('2')}>
+    <Heading level={3} size="sm">
+      A gentle check-in
+    </Heading>
+    <Text tone="muted">Take a moment to notice how you feel. There are no wrong answers.</Text>
+  </div>
 );
 
 export const Outlined: Story = {
@@ -58,7 +52,7 @@ export const Elevated: Story = {
 
 export const Paddings: Story = {
   render: (args) => (
-    <div style={{ display: 'grid', gap: 'var(--mb-space-4)', ...narrow }}>
+    <div style={{ ...stack('4'), ...narrow }}>
       {(['sm', 'md', 'lg'] as const).map((padding) => (
         <Card key={padding} {...args} padding={padding}>
           <code>padding=&quot;{padding}&quot;</code>
@@ -105,13 +99,15 @@ export const MoodEntryExample: Story = {
   render: (args) => (
     <div style={narrow}>
       <Card {...args}>
-        <p style={{ ...body, margin: 0, fontSize: 'var(--mb-font-size-sm)' }}>
-          Sunday, 16 November
-        </p>
-        <h3 id="entry-title" style={{ ...title, marginTop: 'var(--mb-space-1)' }}>
-          Sunday walk
-        </h3>
-        <p style={body}>Slow morning, long walk by the river. Felt lighter afterwards.</p>
+        <div style={stack('2')}>
+          <Text size="sm" tone="muted">
+            Sunday, 16 November
+          </Text>
+          <Heading level={3} size="sm" id="entry-title">
+            Sunday walk
+          </Heading>
+          <Text tone="muted">Slow morning, long walk by the river. Felt lighter afterwards.</Text>
+        </div>
         <div style={{ display: 'flex', gap: 'var(--mb-space-2)', marginTop: 'var(--mb-space-4)' }}>
           <Button size="sm" variant="secondary">
             Edit entry
@@ -144,21 +140,23 @@ export const DashboardExample: Story = {
       }}
     >
       <Card as="section" aria-labelledby="today-title" variant="elevated">
-        <h2 id="today-title" style={title}>
-          Today
-        </h2>
-        <p style={body}>You haven&apos;t checked in yet.</p>
+        <div style={stack('2')}>
+          <Heading level={2} size="sm" id="today-title">
+            Today
+          </Heading>
+          <Text tone="muted">You haven&apos;t checked in yet.</Text>
+        </div>
         <div style={{ marginTop: 'var(--mb-space-4)' }}>
           <Button fullWidth>Check in</Button>
         </div>
       </Card>
 
       <Card as="section" aria-labelledby="note-title">
-        <h2 id="note-title" style={title}>
+        <Heading level={2} size="sm" id="note-title">
           Quick note
-        </h2>
+        </Heading>
         <form
-          style={{ display: 'grid', gap: 'var(--mb-space-4)', marginTop: 'var(--mb-space-3)' }}
+          style={{ ...stack('4'), marginTop: 'var(--mb-space-3)' }}
           onSubmit={(event) => {
             event.preventDefault();
           }}
@@ -171,10 +169,12 @@ export const DashboardExample: Story = {
       </Card>
 
       <Card as="section" aria-labelledby="streak-title">
-        <h2 id="streak-title" style={title}>
-          This week
-        </h2>
-        <p style={body}>4 check-ins. Every one counts, however you were feeling.</p>
+        <div style={stack('2')}>
+          <Heading level={2} size="sm" id="streak-title">
+            This week
+          </Heading>
+          <Text tone="muted">4 check-ins. Every one counts, however you were feeling.</Text>
+        </div>
       </Card>
     </div>
   ),
@@ -183,7 +183,7 @@ export const DashboardExample: Story = {
     docs: {
       description: {
         story:
-          'Composition example showing Card, Button and TextField together. Each card is a named `section`, so they appear as landmarks screen reader users can jump between.',
+          'Composition example showing Card, Heading, Text, Button and TextField together. Each card is a named `section`, so they appear as landmarks screen reader users can jump between.',
       },
     },
   },

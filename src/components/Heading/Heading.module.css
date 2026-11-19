@@ -1,0 +1,33 @@
+/* Margins are reset: spacing between elements belongs to the layout, not the heading. */
+.heading {
+  margin: 0;
+  color: var(--mb-color-text);
+  font-family: var(--mb-font-family-sans);
+  font-weight: var(--mb-font-weight-semibold);
+  text-wrap: balance;
+}
+
+.sizesm {
+  font-size: var(--mb-font-size-lg);
+  line-height: var(--mb-line-height-snug);
+}
+
+.sizemd {
+  font-size: var(--mb-font-size-xl);
+  line-height: var(--mb-line-height-snug);
+}
+
+.sizelg {
+  font-size: var(--mb-font-size-2xl);
+  line-height: var(--mb-line-height-tight);
+}
+
+.sizexl {
+  font-size: var(--mb-font-size-3xl);
+  line-height: var(--mb-line-height-tight);
+}
+
+.size2xl {
+  font-size: var(--mb-font-size-4xl);
+  line-height: var(--mb-line-height-tight);
+}
