@@ -27,5 +27,5 @@
     "noEmit": true,
     "skipLibCheck": true
   },
-  "include": ["src", "scripts", ".storybook", "*.ts"]
+  "include": ["src", "scripts", ".storybook/*.ts", ".storybook/*.tsx", "*.ts"]
 }

@@ -1,0 +1,7 @@
+/* Storybook canvas only: paint the page with the active brand + theme. */
+html,
+body {
+  background: var(--mb-color-surface);
+  color: var(--mb-color-text);
+  font-family: var(--mb-font-family-sans);
+}
