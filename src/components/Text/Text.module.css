@@ -1,0 +1,65 @@
+.text {
+  margin: 0;
+  font-family: var(--mb-font-family-sans);
+  line-height: var(--mb-line-height-normal);
+  text-wrap: pretty;
+}
+
+/* Sizes */
+.size-xs {
+  font-size: var(--mb-font-size-xs);
+}
+
+.size-sm {
+  font-size: var(--mb-font-size-sm);
+}
+
+.size-md {
+  font-size: var(--mb-font-size-md);
+}
+
+.size-lg {
+  font-size: var(--mb-font-size-lg);
+}
+
+/* Tones: all are AA-tested text colours. */
+.tone-default {
+  color: var(--mb-color-text);
+}
+
+.tone-muted {
+  color: var(--mb-color-text-muted);
+}
+
+.tone-accent {
+  color: var(--mb-color-accent);
+}
+
+.tone-success {
+  color: var(--mb-color-success);
+}
+
+.tone-warning {
+  color: var(--mb-color-warning);
+}
+
+.tone-danger {
+  color: var(--mb-color-danger);
+}
+
+/* Weights */
+.weight-regular {
+  font-weight: var(--mb-font-weight-regular);
+}
+
+.weight-medium {
+  font-weight: var(--mb-font-weight-medium);
+}
+
+.weight-semibold {
+  font-weight: var(--mb-font-weight-semibold);
+}
+
+.weight-bold {
+  font-weight: var(--mb-font-weight-bold);
+}

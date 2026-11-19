@@ -59,6 +59,34 @@
       "900": { "$value": "#203B2D" },
       "950": { "$value": "#12231A" }
     },
+    "lavender": {
+      "$description": "Soft violet. Mood scale: the gentlest colour, used for the lowest mood.",
+      "50": { "$value": "#F5F3FB" },
+      "100": { "$value": "#EAE6F7" },
+      "200": { "$value": "#D5CDEF" },
+      "300": { "$value": "#B7AAE3" },
+      "400": { "$value": "#9686D3" },
+      "500": { "$value": "#7A68C0" },
+      "600": { "$value": "#6352A4" },
+      "700": { "$value": "#514385" },
+      "800": { "$value": "#43386B" },
+      "900": { "$value": "#383058" },
+      "950": { "$value": "#221C37" }
+    },
+    "teal": {
+      "$description": "Soft blue-green. Mood scale midpoint.",
+      "50": { "$value": "#EFF8F7" },
+      "100": { "$value": "#D8EFEC" },
+      "200": { "$value": "#B3DEDA" },
+      "300": { "$value": "#82C6C0" },
+      "400": { "$value": "#55A9A3" },
+      "500": { "$value": "#3B8D88" },
+      "600": { "$value": "#2E726E" },
+      "700": { "$value": "#285C59" },
+      "800": { "$value": "#234B49" },
+      "900": { "$value": "#1F3E3C" },
+      "950": { "$value": "#112524" }
+    },
     "coral": {
       "$description": "Soft coral. Warm brand accent.",
       "50": { "$value": "#FDF4F1" },

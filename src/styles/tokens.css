@@ -47,6 +47,28 @@
   --mb-color-sage-800: #274836;
   --mb-color-sage-900: #203B2D;
   --mb-color-sage-950: #12231A;
+  --mb-color-lavender-50: #F5F3FB;
+  --mb-color-lavender-100: #EAE6F7;
+  --mb-color-lavender-200: #D5CDEF;
+  --mb-color-lavender-300: #B7AAE3;
+  --mb-color-lavender-400: #9686D3;
+  --mb-color-lavender-500: #7A68C0;
+  --mb-color-lavender-600: #6352A4;
+  --mb-color-lavender-700: #514385;
+  --mb-color-lavender-800: #43386B;
+  --mb-color-lavender-900: #383058;
+  --mb-color-lavender-950: #221C37;
+  --mb-color-teal-50: #EFF8F7;
+  --mb-color-teal-100: #D8EFEC;
+  --mb-color-teal-200: #B3DEDA;
+  --mb-color-teal-300: #82C6C0;
+  --mb-color-teal-400: #55A9A3;
+  --mb-color-teal-500: #3B8D88;
+  --mb-color-teal-600: #2E726E;
+  --mb-color-teal-700: #285C59;
+  --mb-color-teal-800: #234B49;
+  --mb-color-teal-900: #1F3E3C;
+  --mb-color-teal-950: #112524;
   --mb-color-coral-50: #FDF4F1;
   --mb-color-coral-100: #FBE6DF;
   --mb-color-coral-200: #F6CCBE;
@@ -137,6 +159,11 @@
   --mb-color-warning: var(--mb-color-amber-700);
   --mb-color-danger: var(--mb-color-rose-600);
   --mb-color-focus-ring: var(--mb-color-tide-500);
+  --mb-color-mood-1: var(--mb-color-lavender-500);
+  --mb-color-mood-2: var(--mb-color-tide-500);
+  --mb-color-mood-3: var(--mb-color-teal-500);
+  --mb-color-mood-4: var(--mb-color-sage-500);
+  --mb-color-mood-5: var(--mb-color-amber-600);
 }
 
 /* Semantic: calm / dark */
@@ -154,6 +181,11 @@
   --mb-color-warning: var(--mb-color-amber-300);
   --mb-color-danger: var(--mb-color-rose-300);
   --mb-color-focus-ring: var(--mb-color-tide-300);
+  --mb-color-mood-1: var(--mb-color-lavender-300);
+  --mb-color-mood-2: var(--mb-color-tide-300);
+  --mb-color-mood-3: var(--mb-color-teal-300);
+  --mb-color-mood-4: var(--mb-color-sage-300);
+  --mb-color-mood-5: var(--mb-color-amber-300);
 }
 
 /* Semantic: warm / light */
@@ -171,6 +203,11 @@
   --mb-color-warning: var(--mb-color-amber-700);
   --mb-color-danger: var(--mb-color-rose-700);
   --mb-color-focus-ring: var(--mb-color-coral-600);
+  --mb-color-mood-1: var(--mb-color-lavender-500);
+  --mb-color-mood-2: var(--mb-color-tide-500);
+  --mb-color-mood-3: var(--mb-color-teal-500);
+  --mb-color-mood-4: var(--mb-color-sage-500);
+  --mb-color-mood-5: var(--mb-color-amber-600);
 }
 
 /* Semantic: warm / dark */
@@ -188,4 +225,9 @@
   --mb-color-warning: var(--mb-color-amber-300);
   --mb-color-danger: var(--mb-color-rose-300);
   --mb-color-focus-ring: var(--mb-color-coral-300);
+  --mb-color-mood-1: var(--mb-color-lavender-300);
+  --mb-color-mood-2: var(--mb-color-tide-300);
+  --mb-color-mood-3: var(--mb-color-teal-300);
+  --mb-color-mood-4: var(--mb-color-sage-300);
+  --mb-color-mood-5: var(--mb-color-amber-300);
 }

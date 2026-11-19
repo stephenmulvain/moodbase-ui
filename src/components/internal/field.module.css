@@ -1,0 +1,51 @@
+/* Shared form field parts: label, hint, error. Used by every form control. */
+
+.label {
+  color: var(--mb-color-text);
+  font-family: var(--mb-font-family-sans);
+  font-size: var(--mb-font-size-md);
+  font-weight: var(--mb-font-weight-semibold);
+  line-height: var(--mb-line-height-snug);
+}
+
+.required {
+  color: var(--mb-color-text-muted);
+  font-weight: var(--mb-font-weight-regular);
+}
+
+/* Each control sets --_hint-margin / --_error-margin to fit its own layout. */
+.hint {
+  margin: var(--_hint-margin, 0);
+  color: var(--mb-color-text-muted);
+  font-family: var(--mb-font-family-sans);
+  font-size: var(--mb-font-size-sm);
+  line-height: var(--mb-line-height-normal);
+}
+
+.error:not(:empty) {
+  display: flex;
+  gap: var(--mb-space-1);
+  align-items: flex-start;
+  margin: var(--_error-margin, 0);
+  color: var(--mb-color-danger);
+  font-family: var(--mb-font-family-sans);
+  font-size: var(--mb-font-size-sm);
+  font-weight: var(--mb-font-weight-medium);
+  line-height: var(--mb-line-height-normal);
+}
+
+.error-icon {
+  flex-shrink: 0;
+  width: 1.25em;
+  height: 1.25em;
+  margin-top: 0.0625em;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}

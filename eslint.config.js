@@ -27,6 +27,15 @@ export default defineConfig(
     files: ['src/**/*.{ts,tsx}', '.storybook/**/*.{ts,tsx}'],
     extends: [reactHooks.configs.flat.recommended, jsxA11y.flatConfigs.strict],
     languageOptions: { globals: globals.browser },
+    rules: {
+      // The strict preset forbids every role on <fieldset>, but W3C "ARIA in HTML"
+      // permits role="radiogroup" there. RadioGroup needs it so aria-invalid and
+      // aria-required are valid on the group. Everything else stays strict.
+      'jsx-a11y/no-noninteractive-element-to-interactive-role': [
+        'error',
+        { fieldset: ['radiogroup'] },
+      ],
+    },
   },
 
   // Storybook best practices for *.stories.tsx files.

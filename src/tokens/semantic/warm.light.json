@@ -1,14 +1,26 @@
 {
   "color": {
     "$type": "color",
-    "surface": { "$value": "{color.sand.50}", "$description": "Page background." },
-    "surface-raised": { "$value": "{color.white}", "$description": "Cards, panels, popovers." },
-    "text": { "$value": "{color.sand.900}", "$description": "Primary text." },
+    "surface": {
+      "$value": "{color.sand.50}",
+      "$description": "Page background."
+    },
+    "surface-raised": {
+      "$value": "{color.white}",
+      "$description": "Cards, panels, popovers."
+    },
+    "text": {
+      "$value": "{color.sand.900}",
+      "$description": "Primary text."
+    },
     "text-muted": {
       "$value": "{color.sand.600}",
       "$description": "Secondary text. Still AA on every surface."
     },
-    "border": { "$value": "{color.sand.200}", "$description": "Decorative dividers." },
+    "border": {
+      "$value": "{color.sand.200}",
+      "$description": "Decorative dividers."
+    },
     "border-strong": {
       "$value": "{color.sand.500}",
       "$description": "Input and control outlines (3:1 non-text contrast)."
@@ -21,12 +33,39 @@
       "$value": "{color.white}",
       "$description": "Text and icons placed on an accent fill."
     },
-    "success": { "$value": "{color.sage.600}" },
-    "warning": { "$value": "{color.amber.700}" },
+    "success": {
+      "$value": "{color.sage.600}"
+    },
+    "warning": {
+      "$value": "{color.amber.700}"
+    },
     "danger": {
       "$value": "{color.rose.700}",
       "$description": "Errors and destructive actions only, never mood."
     },
-    "focus-ring": { "$value": "{color.coral.600}", "$description": "Keyboard focus outline." }
+    "focus-ring": {
+      "$value": "{color.coral.600}",
+      "$description": "Keyboard focus outline."
+    },
+    "mood-1": {
+      "$value": "{color.lavender.500}",
+      "$description": "Struggling. Gentle violet, never alarming."
+    },
+    "mood-2": {
+      "$value": "{color.tide.500}",
+      "$description": "Low."
+    },
+    "mood-3": {
+      "$value": "{color.teal.500}",
+      "$description": "Okay."
+    },
+    "mood-4": {
+      "$value": "{color.sage.500}",
+      "$description": "Good."
+    },
+    "mood-5": {
+      "$value": "{color.amber.600}",
+      "$description": "Great."
+    }
   }
 }

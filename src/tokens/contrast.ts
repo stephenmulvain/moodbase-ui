@@ -26,6 +26,27 @@ export function contrastRatio(foreground: string, background: string): number {
   return (Math.max(a, b) + 0.05) / (Math.min(a, b) + 0.05);
 }
 
+/**
+ * Mirrors CSS `color-mix(in srgb, <color> <amount>, <base>)`: a straight blend of the
+ * gamma-encoded sRGB channels. Lets tests check contrast on tinted backgrounds.
+ */
+export function mixHex(color: string, base: string, amount: number): string {
+  const a = hexToRgb(color);
+  const b = hexToRgb(base);
+  const channel = (i: 0 | 1 | 2) => Math.round(a[i] * amount + b[i] * (1 - amount));
+  return `#${[channel(0), channel(1), channel(2)]
+    .map((c) => c.toString(16).padStart(2, '0'))
+    .join('')
+    .toUpperCase()}`;
+}
+
+/**
+ * How much tone colour tints a feedback background. Must match the percentages in
+ * Alert.module.css, Badge.module.css and MoodPicker.module.css (selected tile);
+ * the tinted contrast tests depend on them.
+ */
+export const TINT = { alert: 0.1, badge: 0.14, mood: 0.12 } as const;
+
 export interface ContrastRequirement {
   /** Semantic colour name without the `color.` prefix. */
   foreground: string;
@@ -52,4 +73,7 @@ export const contrastRequirements: ContrastRequirement[] = [
   ...onSurfaces('focus-ring', NON_TEXT, 'Keyboard focus ring'),
   { foreground: 'on-accent', background: 'accent', minimum: TEXT, use: 'Text on accent buttons' },
   { foreground: 'on-accent', background: 'danger', minimum: TEXT, use: 'Text on danger buttons' },
+  ...([1, 2, 3, 4, 5] as const).flatMap((level) =>
+    onSurfaces(`mood-${level}`, NON_TEXT, `Mood ${level} icon and indicator`),
+  ),
 ];
