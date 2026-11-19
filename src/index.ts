@@ -5,6 +5,8 @@ import './styles/base.css';
 
 export { Button } from './components/Button';
 export type { ButtonProps, ButtonSize, ButtonVariant } from './components/Button';
+export { Card } from './components/Card';
+export type { CardElement, CardPadding, CardProps, CardVariant } from './components/Card';
 export { TextField } from './components/TextField';
 export type { TextFieldProps, TextFieldSize } from './components/TextField';
 

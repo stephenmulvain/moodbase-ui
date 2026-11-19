@@ -1,0 +1,51 @@
+/*
+ * Card: a calm surface for grouping related content.
+ * Uses only --mb-* tokens. Content inside sets its own type and spacing.
+ */
+
+.card {
+  box-sizing: border-box;
+  min-width: 0;
+  border: var(--mb-border-width-thin) solid var(--mb-color-border);
+  border-radius: var(--mb-radius-lg);
+  background: var(--mb-color-surface-raised);
+  color: var(--mb-color-text);
+}
+
+/* `li` cards: remove list bullets without changing semantics. */
+li.card {
+  list-style: none;
+}
+
+.outlined {
+  box-shadow: none;
+}
+
+/* Shadows fade into dark backgrounds, so the subtle border carries the edge there. */
+.elevated {
+  box-shadow: var(--mb-shadow-md);
+}
+
+.padding-none {
+  padding: 0;
+  overflow: hidden; /* clip edge-to-edge media to the rounded corners */
+}
+
+.padding-sm {
+  padding: var(--mb-space-4);
+}
+
+.padding-md {
+  padding: var(--mb-space-6);
+}
+
+.padding-lg {
+  padding: var(--mb-space-8);
+}
+
+/* Windows High Contrast drops shadows: make sure every card keeps a visible edge. */
+@media (forced-colors: active) {
+  .card {
+    border-color: CanvasText;
+  }
+}
