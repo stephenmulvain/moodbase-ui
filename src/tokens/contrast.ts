@@ -42,9 +42,10 @@ export function mixHex(color: string, base: string, amount: number): string {
 
 /**
  * How much tone colour tints a feedback background. Must match the percentages in
- * Alert.module.css and Badge.module.css; the tinted contrast tests depend on them.
+ * Alert.module.css, Badge.module.css and MoodPicker.module.css (selected tile);
+ * the tinted contrast tests depend on them.
  */
-export const TINT = { alert: 0.1, badge: 0.14 } as const;
+export const TINT = { alert: 0.1, badge: 0.14, mood: 0.12 } as const;
 
 export interface ContrastRequirement {
   /** Semantic colour name without the `color.` prefix. */
@@ -72,4 +73,7 @@ export const contrastRequirements: ContrastRequirement[] = [
   ...onSurfaces('focus-ring', NON_TEXT, 'Keyboard focus ring'),
   { foreground: 'on-accent', background: 'accent', minimum: TEXT, use: 'Text on accent buttons' },
   { foreground: 'on-accent', background: 'danger', minimum: TEXT, use: 'Text on danger buttons' },
+  ...([1, 2, 3, 4, 5] as const).flatMap((level) =>
+    onSurfaces(`mood-${level}`, NON_TEXT, `Mood ${level} icon and indicator`),
+  ),
 ];

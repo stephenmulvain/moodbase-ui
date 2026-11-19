@@ -1,0 +1,121 @@
+/*
+ * MoodPicker: five tiles backed by real radio inputs. The input is visually hidden
+ * but stays focusable; the tile after it shows focus and selection via sibling selectors.
+ * Selection uses a thicker border, a 12% mood tint and a bolder label, so it never
+ * relies on colour alone.
+ */
+
+.picker {
+  --_hint-margin: 0 0 var(--mb-space-2);
+  --_error-margin: 0 0 var(--mb-space-2);
+
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.legend {
+  float: left;
+  width: 100%;
+  margin-bottom: var(--mb-space-2);
+  padding: 0;
+}
+
+.options {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: var(--mb-space-2);
+  clear: both;
+}
+
+.option {
+  position: relative;
+  display: block;
+  min-width: 0;
+}
+
+/* Visually hidden, still focusable and still in the accessibility tree. */
+.input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.tile {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mb-space-2);
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  height: 100%;
+  min-height: 96px;
+  padding: var(--mb-space-3) var(--mb-space-1);
+  border: var(--mb-border-width-thin) solid var(--mb-color-border-strong);
+  border-radius: var(--mb-radius-lg);
+  background: var(--mb-color-surface-raised);
+  color: var(--mb-color-text);
+  font-family: var(--mb-font-family-sans);
+  font-size: var(--mb-font-size-sm);
+  font-weight: var(--mb-font-weight-medium);
+  line-height: var(--mb-line-height-snug);
+  text-align: center;
+  cursor: pointer;
+  transition:
+    background-color 120ms ease-out,
+    border-color 120ms ease-out,
+    box-shadow 120ms ease-out;
+}
+
+.text {
+  overflow-wrap: anywhere;
+}
+
+.input:not(:checked, :disabled) + .tile:hover {
+  background: color-mix(in srgb, var(--_mood) 6%, var(--mb-color-surface-raised));
+}
+
+.input:focus-visible + .tile {
+  outline: var(--mb-border-width-thick) solid var(--mb-color-focus-ring);
+  outline-offset: 2px;
+}
+
+/* Selected: mood border (doubled via inset shadow), soft mood tint and a bolder label. */
+.input:checked + .tile {
+  border-color: var(--_mood);
+  background: color-mix(in srgb, var(--_mood) 12%, var(--mb-color-surface-raised));
+  box-shadow: inset 0 0 0 var(--mb-border-width-thin) var(--_mood);
+  font-weight: var(--mb-font-weight-bold);
+}
+
+.invalid {
+  border-color: var(--mb-color-danger);
+}
+
+.input:disabled + .tile {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tile {
+    transition: none;
+  }
+}
+
+/* Windows High Contrast: tints and shadows disappear, so mark selection with Highlight. */
+@media (forced-colors: active) {
+  .tile {
+    border-color: CanvasText;
+  }
+
+  .input:checked + .tile {
+    border-width: var(--mb-border-width-thick);
+    border-color: Highlight;
+  }
+}

@@ -22,6 +22,14 @@ export { Alert } from './components/Alert';
 export type { AlertProps, AlertTone } from './components/Alert';
 export { Badge } from './components/Badge';
 export type { BadgeProps, BadgeTone } from './components/Badge';
+export {
+  defaultMoodLabels,
+  MoodIcon,
+  moodColorVar,
+  moodLevels,
+  MoodPicker,
+} from './components/MoodPicker';
+export type { MoodIconProps, MoodLevel, MoodPickerProps } from './components/MoodPicker';
 export { Heading } from './components/Heading';
 export type { HeadingLevel, HeadingProps, HeadingSize } from './components/Heading';
 export { Text } from './components/Text';

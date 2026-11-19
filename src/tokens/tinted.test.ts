@@ -31,5 +31,15 @@ describe.each(brands.flatMap((brand) => themes.map((theme) => ({ brand, theme })
       const background = mixHex(get(tone), raised, TINT.badge);
       expect(contrastRatio(get(tone), background)).toBeGreaterThanOrEqual(4.5);
     });
+
+    it.each([1, 2, 3, 4, 5])(
+      'MoodPicker selected mood-%i: face and border ≥ 3:1, label ≥ 4.5:1',
+      (level) => {
+        const mood = get(`mood-${level}`);
+        const background = mixHex(mood, raised, TINT.mood);
+        expect(contrastRatio(mood, background)).toBeGreaterThanOrEqual(3);
+        expect(contrastRatio(get('text'), background)).toBeGreaterThanOrEqual(4.5);
+      },
+    );
   },
 );
