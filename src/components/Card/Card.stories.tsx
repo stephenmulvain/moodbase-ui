@@ -101,7 +101,7 @@ export const MoodEntryExample: Story = {
       <Card {...args}>
         <div style={stack('2')}>
           <Text size="sm" tone="muted">
-            Sunday, 16 November
+            Sunday, 15 November
           </Text>
           <Heading level={3} size="sm" id="entry-title">
             Sunday walk
