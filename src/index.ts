@@ -37,5 +37,9 @@ export type { HeadingLevel, HeadingProps, HeadingSize } from './components/Headi
 export { Text } from './components/Text';
 export type { TextElement, TextProps, TextSize, TextTone, TextWeight } from './components/Text';
 
+// Patterns: Moodbase-specific compositions of the components above.
+export { MoodEntryCard } from './patterns/MoodEntryCard';
+export type { MoodEntryCardProps } from './patterns/MoodEntryCard';
+
 export { brands, themes } from './tokens/themes';
 export type { Brand, Theme } from './tokens/themes';

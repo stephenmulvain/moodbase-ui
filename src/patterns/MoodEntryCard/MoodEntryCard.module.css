@@ -1,0 +1,75 @@
+/* MoodEntryCard (pattern): layout only. Colours and type come from the components it uses. */
+
+.card {
+  display: grid;
+  gap: var(--mb-space-4);
+}
+
+.header {
+  display: flex;
+  gap: var(--mb-space-3);
+  align-items: center;
+}
+
+.titles {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+
+/* Keep the person's own line breaks. */
+.note {
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+}
+
+/* While clamped, paragraph breaks become spaces so the preview never wastes a line
+   on a blank gap; the full note keeps its breaks when expanded. */
+.clamped {
+  display: -webkit-box;
+  white-space: normal;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: var(--_lines, 3);
+  line-clamp: var(--_lines, 3);
+}
+
+/* Align the ghost button's text with the note above it. */
+.read-more {
+  margin-top: var(--mb-space-1);
+  margin-inline-start: calc(var(--mb-space-3) * -1);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--mb-space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footer {
+  padding-top: var(--mb-space-3);
+  border-top: var(--mb-border-width-thin) solid var(--mb-color-border);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--mb-space-2);
+}
+
+.confirm {
+  display: grid;
+  gap: var(--mb-space-3);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
